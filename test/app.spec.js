@@ -1,7 +1,7 @@
 const app = require("../src/app");
 
 describe("App", () => {
-  it("GET / responds with 200!", () => {
-    return supertest(app).get("/").expect(200);
+  it("does not allow GET without API token", () => {
+    return supertest(app).get("/bookmarks").expect(401);
   });
 });
